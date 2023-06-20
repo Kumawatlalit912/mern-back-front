@@ -76,6 +76,8 @@ const refreshAccessTokenController = async (req, res) => {
   const cookies = req.cookies;
   if (!cookies.jwt) {
     // return res.status(401).send("Refresh token in cookie is required");
+
+    //make another json file for error codes and import that in every file wherever you are sending these resp status
     return res.send(error(401, "Refresh token in cookie is required"));
   }
 
