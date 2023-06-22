@@ -3,6 +3,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { error, success } = require("../utils/responseWrapper");
 
+//signupController and its functions
+
 const signupController = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -31,6 +33,8 @@ const signupController = async (req, res) => {
     return res.send(error(500, e.message));
   }
 };
+
+//loginController
 
 const loginController = async (req, res) => {
   try {
@@ -91,6 +95,8 @@ const refreshAccessTokenController = async (req, res) => {
       process.env.REFRESH_TOKEN_PRIVATE_KEY
     );
 
+    //to get _id of user
+
     const _id = decoded._id;
     const accessToken = generateAccessToken({ _id });
 
@@ -101,6 +107,8 @@ const refreshAccessTokenController = async (req, res) => {
     return res.send(error(401, "Invalid refresh token"));
   }
 };
+
+//logout controller
 
 const logoutController = async (req, res) => {
   try {
@@ -126,6 +134,8 @@ const generateAccessToken = (data) => {
     console.log(error);
   }
 };
+
+//generateRefreshToken
 
 const generateRefreshToken = (data) => {
   try {
