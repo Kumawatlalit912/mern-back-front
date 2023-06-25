@@ -12,6 +12,9 @@ const cloudinary = require("cloudinary").v2;
 dotenv.config("./.env");
 
 // Configuration
+
+//added cloud config to store images on cloud
+
 cloudinary.config({
   secure: true,
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
